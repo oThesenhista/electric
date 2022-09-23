@@ -25,7 +25,7 @@
         background-color: #fff;
         padding:20px;
         border-radius: 20px;
-        width:430px;
+        width:610px;
         margin: auto;
       }
       .avatar img {
@@ -60,7 +60,7 @@
         border-radius: 5px;
       }
       .form {
-        width:430px;
+        width:620px;
       }
 
       a {
@@ -104,10 +104,10 @@
               <tr>
             <!-- AVATAR -->
                 <td style="vertical-align: top; height: 200px; width: 230px;">
-                  <div style=" width:200px; height: 200px;
-                  border-radius:200px; overflow: hidden;">
+                  <div id="avatar-radius" style=" width:200px; height: 200px;
+                  border-radius:50%; overflow: hidden;">
                     <canvas hidden></canvas>
-                    <img id="preview" src="img/Logo_EM.png"></img>
+                    <img id="preview" src="img/Logo_Var01.png"></img>
                   </div>
                 </td>
             <!-- NOME/CARGO -->
@@ -165,7 +165,15 @@
           <input type="text" placeholder="Celular" style="width:85%; margin-right:0;"
           target="tel-second" link="tel:"><input onclick="myFunction()" type="checkbox" />
           <input type="text" placeholder="E-Mail" target="email" link="mailto:">
-          <input type="file" id="image-input" accept="image/*" value="img/Logo_EM.png"/>
+          <input type="file" id="image-input" accept="image/*" value="img/Logo_EM.png"
+          style="margin-bottom: 15px;"/>
+          <span style="font-family:Arial; font-size: 14px; margin: 5px; color: #626469;" >Borda Arredondada</span>
+          <input type="range" min="0" max="50" value="50" onmousemove="setAvatarRadius(this.value)"/>
+            <div class="avatares" >
+              <img src="img/Logo_Var01.png" onclick="setDefaultAvatar(this.src)">
+              <img src="img/Logo_Var02.png" onclick="setDefaultAvatar(this.src)">
+              <img src="img/Logo_Var03.png" onclick="setDefaultAvatar(this.src)">
+            </div>
         </div>
       </div>
     </div>
@@ -223,6 +231,18 @@
     });
   </script>
 
+  <script>
+    function setDefaultAvatar(source)
+    {
+      document.getElementById("preview").src = source;
+    }
+    function setAvatarRadius(value)
+    {
+      document.getElementById("avatar-radius").style.borderRadius = value+'%';
+    }
+  </script>
+  
+
     <script>
       function CopyToClipboard(id)
       {
@@ -249,7 +269,7 @@
           }
         })
       }
-    </script>
+    </scrip>
 
     <script>
     function myFunction() {
